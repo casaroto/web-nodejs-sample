@@ -1,8 +1,8 @@
 FROM node:19.9
-WORKDIR /app
-COPY package.json /app
+WORKDIR /node-app
+COPY package.json /node-app
 RUN npm install --force
-COPY . /app
+COPY . /node-app
 
-CMD node /app/app.js
+CMD node /node-app/app/app.js
 EXPOSE 3000
