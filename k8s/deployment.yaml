@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-nodejs-sample
+  labels:
+    app: web-nodejs-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-nodejs-sample
+  template:
+    metadata:
+      labels:
+        app: web-nodejs-sample
+    spec:
+      containers:
+      - name: web-nodejs-sample
+        image: image-registry.openshift-image-registry.svc:5000/che-kube-admin-che-y9cogy/web-nodejs-sample:latest
+        ports:
+        - containerPort: 8080
